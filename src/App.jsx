@@ -11,8 +11,9 @@ function App() {
       new Array(16)
       .fill()
       .map((_,i) => ({
-        src : `/pix/0${i%8+1}.jpg`,
-        revealed : false,  
+        src : `./src/pix/0${i%8+1}.png`,
+        revealed : false,
+      
       }))
       .sort(() => Math.random() -.5)
     setCards(cards)
@@ -23,9 +24,14 @@ function App() {
   return (
       <div className="App">
           {cards.map((card,i) => (
-            <div>
-              <img src={card.src}/>
+            <div className='card' key={i}>
+                <div className='card__face card__face--front'>
+              <img src={card.src} alt="card-front"/>
+              </div>
+              <div className='card__face card__face--back'>
+              <img src='./src/pix/back.png' alt="card-back"/>
             </div>
+      </div>
 
           ))}
 
